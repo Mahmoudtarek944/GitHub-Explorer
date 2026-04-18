@@ -11,9 +11,10 @@ export const SearchRepo = () => {
           type="text"
           className="fw-medium bg-dark text-light border-0 rounded-2 p-2 fs-6 "
           ref={refInput}
+          placeholder="react"
         />
         <button
-          className="btn btn-outline-light"
+          className="btn btnSearch"
           onClick={() => {
             let valueInput = refInput.current.value.trim() > 0;
             if (!valueInput) return;
@@ -26,11 +27,11 @@ export const SearchRepo = () => {
         </button>
       </div>
       <div className="d-flex gap-1 justify-content-center flex-wrap">
-        <button className="btn btn-outline-light">All</button>
-        <button className="btn btn-outline-light">JavaScript</button>
-        <button className="btn btn-outline-light">Python</button>
-        <button className="btn btn-outline-light">TypeScript</button>
-        <button className="btn btn-outline-light">Go</button>
+        <button className="btn btnSearch ">All</button>
+        <button className="btn btnSearch">JavaScript</button>
+        <button className="btn btnSearch">Python</button>
+        <button className="btn btnSearch">TypeScript</button>
+        <button className="btn btnSearch">Go</button>
       </div>
     </div>
   );

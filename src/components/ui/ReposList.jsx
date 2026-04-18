@@ -6,7 +6,7 @@ export const ReposList = () => {
   const { state } = useContext(RepoContext);
   return (
     <>
-      <div className="container mt-4 me-4">
+      <div className="container mt-4 me-5">
         <div className="row justify-content-center">
           {state.map((s) => (
             <RepoCard key={s.id} s={s} />
