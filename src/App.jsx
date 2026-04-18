@@ -1,11 +1,11 @@
-import { Nav } from "react-bootstrap";
+import { NavBar } from "./components/layout/Nav";
 import { Footer } from "./components/layout/Footer";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Nav />
+      <NavBar />
       <Routes>
         <Route path="/" />
         <Route path="/user/:userame" />
