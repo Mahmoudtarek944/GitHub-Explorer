@@ -3,6 +3,8 @@ import { getData } from "../utils/api";
 import { SearchRepo } from "../components/ui/SearchRepo";
 import { ReposList } from "../components/ui/ReposList";
 import { RepoContext } from "../context/RepoContext";
+import { Loading } from "./Loading";
+import { Error } from "./Error";
 function Home() {
   const initialState = {
     repos: [],
@@ -67,6 +69,13 @@ function Home() {
   const currentRepos = state.repos.slice(indexOfFirstRepo, indexOfLastRepo); // slice 12 card from all state.repo this array that we need to show in ui no all state.repo
   // rather than pass all recived array , I pass only 12 from the start index the current page to end index of current page
   const totalPages = Math.ceil(state.repos.length / itemsPerPage); // to define number of buttons in pagination
+
+  if (state.isLoading) {
+    return <Loading />;
+  }
+  if (state.isError) {
+    return <Error />;
+  }
   return (
     <div>
       <header className="d-flex flex-column align-items-center gap-1 text-white mt-4 mb-2 fw-medium">
