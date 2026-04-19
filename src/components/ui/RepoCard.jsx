@@ -1,6 +1,8 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useNavigate } from "react-router-dom";
 export const RepoCard = ({ s }) => {
+  const naviage = useNavigate();
   return (
     <>
       <div className="col-10 col-md-5 col-lg-4 mb-3 d-flex">
@@ -44,7 +46,15 @@ export const RepoCard = ({ s }) => {
               <i className="bi bi-star-fill text-warning"></i>
               <h6 className="mt-1">{s.stargazers_count}</h6>
             </div>
-            <Button variant="btn btn-dark">Show Profile</Button>
+            <Button
+              variant="btn btn-dark"
+              onClick={() => {
+                console.log(s.owner.login);
+                naviage(`/username/${s.owner.login}`);
+              }}
+            >
+              Show Profile
+            </Button>
           </Card.Body>
         </Card>
       </div>

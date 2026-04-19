@@ -34,9 +34,6 @@ export const NavBar = () => {
               >
                 Home
               </Nav.Link>
-              <Nav.Link href="/trending" className="text-light fw-medium ">
-                Trending
-              </Nav.Link>
               <Nav.Link href="/bookmarks" className="text-light fw-medium ">
                 Bookmarks
               </Nav.Link>

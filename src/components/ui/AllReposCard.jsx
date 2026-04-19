@@ -15,7 +15,6 @@ export const AllReposCard = ({ reposData }) => {
         Repositories
         <span className="badge bg-secondary fs-6">{reposData.length}</span>
       </h4>
-
       <div className="d-flex flex-column gap-3">
         {reposData.map((repo) => (
           <div

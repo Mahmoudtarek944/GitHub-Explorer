@@ -8,6 +8,7 @@ import { Error } from "./Error";
 function Home() {
   const initialState = {
     repos: [],
+    quaryName: "all",
     currentPage: 1,
     isLoading: false,
     isError: false,
@@ -38,6 +39,8 @@ function Home() {
           ...state,
           currentPage: action.nowIndex,
         };
+      case "QUERY_CODE":
+        return { ...state, quaryName: action.payload };
     }
   };
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -47,7 +50,7 @@ function Home() {
     async function getAPIData() {
       dispatch({ type: "FIRST_FETCH" });
       try {
-        const res = await getData("js", 1);
+        const res = await getData(state.quaryName, 1);
         console.log(res);
         if (isMount) {
           dispatch({ type: "SUCCESS_FETCH", payload: res });
@@ -62,7 +65,7 @@ function Home() {
     return () => {
       isMount = false;
     };
-  }, []);
+  }, [state.quaryName]);
   const itemsPerPage = 12;
   const indexOfLastRepo = state.currentPage * itemsPerPage;
   const indexOfFirstRepo = indexOfLastRepo - itemsPerPage;
@@ -81,7 +84,7 @@ function Home() {
       <header className="d-flex flex-column align-items-center gap-1 text-white mt-4 mb-2 fw-medium">
         <h3>Explore GitHub repositories</h3>
         <h6 className="text-secondary">
-          Search by username or repository name
+          Search by repository name or Tool name
         </h6>
       </header>
       <div>
