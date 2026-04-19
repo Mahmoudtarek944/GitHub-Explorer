@@ -26,13 +26,13 @@ export const SearchRepo = () => {
           className={`btn ${searchType === "user" ? "btn-light" : "btn-outline-secondary"}`}
           onClick={() => setSearchType("user")}
         >
-          User Search
+          Repository Search
         </button>
         <button
           className={`btn ${searchType === "tool" ? "btn-light" : "btn-outline-secondary"}`}
           onClick={() => setSearchType("tool")}
         >
-          Tool Search
+          Tool / User Search
         </button>
       </div>
 
@@ -43,8 +43,8 @@ export const SearchRepo = () => {
           ref={refInput}
           placeholder={
             searchType === "user"
-              ? "Enter username..."
-              : "Enter tool (e.g. React)"
+              ? "Enter repo name..."
+              : "Enter tool / username"
           }
         />
         <button className="btn btnSearch" onClick={handleSearch}>

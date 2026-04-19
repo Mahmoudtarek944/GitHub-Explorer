@@ -1,8 +1,10 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 export const RepoCard = ({ s }) => {
   const naviage = useNavigate();
+
   return (
     <>
       <div className="col-10 col-md-5 col-lg-4 mb-3 d-flex">
@@ -20,7 +22,55 @@ export const RepoCard = ({ s }) => {
               style={{ width: "20%" }}
             />
             <div className="d-flex gap-1 text-light ">
-              <button className="btn btn-outline-light btn-book-mark ">
+              <button
+                className="btn btn-outline-light btn-book-mark "
+                onClick={() => {
+                  console.log(localStorage);
+                  // console.log(s);
+                  const savedData = localStorage.getItem("savedRepo");
+                  let currentList = savedData ? JSON.parse(savedData) : [];
+                  const isExist = currentList.find((item) => item.id === s.id);
+
+                  if (!isExist) {
+                    const newList = [...currentList, s];
+                    localStorage.setItem("savedRepo", JSON.stringify(newList));
+                    Swal.mixin({
+                      toast: true,
+                      position: "top-end",
+                      showConfirmButton: false,
+                      timer: 2000,
+                      timerProgressBar: true,
+                      background: "rgb(94, 123, 77)",
+                      color: "#e0e0e0",
+                      didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                      },
+                    }).fire({
+                      icon: "success",
+                      title: "Saved Successfully!",
+                    });
+                  } else {
+                    Swal.mixin({
+                      toast: true,
+                      position: "top-end",
+                      showConfirmButton: false,
+                      timer: 3000,
+                      timerProgressBar: true,
+                      background: "rgb(120, 62, 62)",
+                      color: "#ebeaea",
+                      didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                      },
+                    }).fire({
+                      icon: "error",
+                      title: "Already Saved!",
+                    });
+                  }
+                  console.log(localStorage);
+                }}
+              >
                 <i className="bi bi-bookmark-star-fill"></i>
               </button>
             </div>
