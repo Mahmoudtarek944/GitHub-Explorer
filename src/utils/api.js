@@ -19,3 +19,13 @@ export async function getUser(userName) {
   }
   return null;
 }
+
+export async function getReposUser(userName) {
+  const res = await axios(
+    `https://api.github.com/users/${userName}/repos?sort=stars&per_page=30`,
+  );
+  if (res.status === 200) {
+    return res.data;
+  }
+  return null;
+}

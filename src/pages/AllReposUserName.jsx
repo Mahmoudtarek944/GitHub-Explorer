@@ -1,14 +1,12 @@
-import { useEffect, useReducer } from "react";
-import { useParams } from "react-router-dom";
-import { getUser } from "../utils/api";
-import { Loading } from "./Loading";
-import { Error } from "./Error";
-import { RepoSearchCard } from "../components/ui/RepoSearchCard";
+import { useReducer, useEffect } from "react";
 import { UserNameRepoContext } from "../context/UserNameRepoContext";
-import { AllReposUserName } from "../components/ui/AllReposUserName";
-export const UserRepoName = () => {
+import { getReposUser } from "../utils/api";
+import { AllReposCard } from "../components/ui/AllReposCard";
+import { useParams } from "react-router-dom";
+
+export const AllReposUserName = () => {
   const initialState = {
-    repoNameSearched: {},
+    repos: [],
     isLoading: false,
     isError: false,
   };
@@ -23,7 +21,7 @@ export const UserRepoName = () => {
       case "SUCCESS_FETCH":
         return {
           ...state,
-          repoNameSearched: action.payload,
+          repos: action.payload,
           isLoading: false,
           isError: false,
         };
@@ -40,7 +38,7 @@ export const UserRepoName = () => {
     async function getUserData() {
       dispatch({ type: "FIRST_FETCH" });
       try {
-        const res = await getUser(username);
+        const res = await getReposUser(username);
         console.log(res);
         if (isMount) {
           dispatch({ type: "SUCCESS_FETCH", payload: res });
@@ -62,5 +60,5 @@ export const UserRepoName = () => {
   if (state.isError) {
     return <Error />;
   }
-  return <RepoSearchCard repoSearch={state.repoNameSearched} />;
+  return <AllReposCard reposData={state.repos} />;
 };

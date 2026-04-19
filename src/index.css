@@ -6,24 +6,30 @@
 body {
   background-color: #30302e !important;
 }
-.btnSearch {
+.btnSearch,
+.btn-back,
+.btn-git-hub {
   background-color: transparent !important;
   color: white !important;
 }
 .btnSearch,
 .repo-card,
 .btn-book-mark,
-.btn-pagination {
+.btn-pagination,
+.btn-back,
+.btn-git-hub {
   border: 1px solid #444444 !important;
   border-radius: 1em;
   transition: all 0.3s ease;
 }
 .repo-card:hover,
-.btnSearch:hover {
+.btnSearch:hover,
+.btn-git-hub:hover {
   box-shadow: 0 4px 1.4em rgba(0, 0, 0, 0.4);
   transform: translateY(-1px);
 }
-.btnSearch:hover {
+.btnSearch:hover,
+.btn-back:hover {
   background: rgb(92, 92, 92) !important;
   color: black;
 }

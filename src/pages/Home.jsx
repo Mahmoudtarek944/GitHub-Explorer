@@ -47,7 +47,7 @@ function Home() {
     async function getAPIData() {
       dispatch({ type: "FIRST_FETCH" });
       try {
-        const res = await getData("react", 1);
+        const res = await getData("js", 1);
         console.log(res);
         if (isMount) {
           dispatch({ type: "SUCCESS_FETCH", payload: res });

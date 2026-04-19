@@ -18,6 +18,7 @@ export const SearchRepo = () => {
         <button
           className="btn btnSearch"
           onClick={() => {
+            // to redirect to userRepoName page
             const val = refInput.current.value.trim();
             if (val) {
               navigateUserRepoName(`/username/${val}`);
