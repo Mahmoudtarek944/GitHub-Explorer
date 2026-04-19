@@ -1,9 +1,11 @@
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 import { RepoContext } from "../../context/RepoContext";
+import { useNavigate } from "react-router-dom";
 
 export const SearchRepo = () => {
-  const { dispatch } = useContext(RepoContext);
+  // const { dispatch } = useContext(RepoContext);
   const refInput = useRef(null);
+  const navigateUserRepoName = useNavigate();
   return (
     <div className="d-flex flex-column gap-3 align-items-center text-center">
       <div className="d-flex gap-3 ">
@@ -16,11 +18,10 @@ export const SearchRepo = () => {
         <button
           className="btn btnSearch"
           onClick={() => {
-            let valueInput = refInput.current.value.trim() > 0;
-            if (!valueInput) return;
-            dispatch({
-              type: "SEARCH_NAME",
-            });
+            const val = refInput.current.value.trim();
+            if (val) {
+              navigateUserRepoName(`/username/${val}`);
+            }
           }}
         >
           Search

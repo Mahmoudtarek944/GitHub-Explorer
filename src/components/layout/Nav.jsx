@@ -4,7 +4,6 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-
 export const NavBar = () => {
   return (
     <>
@@ -30,12 +29,12 @@ export const NavBar = () => {
                 className={
                   window.location.pathname === "/"
                     ? "text-light fw-medium rounded-3 bg-black"
-                    : "text-light fw-medium bg-black"
+                    : "text-light fw-medium  rounded-3 "
                 }
               >
                 Home
               </Nav.Link>
-              <Nav.Link href="/user/:userame" className="text-light fw-medium ">
+              <Nav.Link href="/trending" className="text-light fw-medium ">
                 Trending
               </Nav.Link>
               <Nav.Link href="/bookmarks" className="text-light fw-medium ">

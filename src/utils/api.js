@@ -10,3 +10,12 @@ export async function getData(query, pageNum) {
   }
   return null;
 }
+
+export async function getUser(userName) {
+  const res = await axios(`https://api.github.com/users/${userName}`);
+  if (res.status === 200) {
+    console.log(res.data);
+    return res.data;
+  }
+  return null;
+}
