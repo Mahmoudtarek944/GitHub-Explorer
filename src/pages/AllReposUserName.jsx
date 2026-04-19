@@ -1,8 +1,8 @@
 import { useReducer, useEffect } from "react";
-import { UserNameRepoContext } from "../context/UserNameRepoContext";
 import { getReposUser } from "../utils/api";
 import { AllReposCard } from "../components/ui/AllReposCard";
 import { useParams } from "react-router-dom";
+import { Loading } from "./Loading";
 
 export const AllReposUserName = () => {
   const initialState = {
@@ -60,5 +60,9 @@ export const AllReposUserName = () => {
   if (state.isError) {
     return <Error />;
   }
-  return <AllReposCard reposData={state.repos} />;
+  return (
+    <div className="container">
+      <AllReposCard reposData={state.repos} />
+    </div>
+  );
 };

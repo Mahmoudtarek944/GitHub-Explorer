@@ -4,8 +4,7 @@ import { getUser } from "../utils/api";
 import { Loading } from "./Loading";
 import { Error } from "./Error";
 import { RepoSearchCard } from "../components/ui/RepoSearchCard";
-import { UserNameRepoContext } from "../context/UserNameRepoContext";
-import { AllReposUserName } from "../components/ui/AllReposUserName";
+import { AllReposUserName } from "./AllReposUserName";
 export const UserRepoName = () => {
   const initialState = {
     repoNameSearched: {},
@@ -62,5 +61,10 @@ export const UserRepoName = () => {
   if (state.isError) {
     return <Error />;
   }
-  return <RepoSearchCard repoSearch={state.repoNameSearched} />;
+  return (
+    <>
+      <RepoSearchCard repoSearch={state.repoNameSearched} />
+      <AllReposUserName />
+    </>
+  );
 };

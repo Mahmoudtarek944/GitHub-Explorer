@@ -91,7 +91,7 @@ function Home() {
         </RepoContext.Provider>
       </div>
       <nav>
-        <ul className="pagination d-flex justify-content-center">
+        <ul className="pagination d-flex justify-content-center gap-1">
           {[...Array(totalPages)].map(
             (
               _,

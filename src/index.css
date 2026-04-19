@@ -1,41 +1,89 @@
+/* App.css */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  background-color: #30302e !important;
+  background-color: #1a1a1a !important;
+  color: #e0e0e0 !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.repo-card {
+  border: #333 solid 1px !important;
 }
 .btnSearch,
 .btn-back,
-.btn-git-hub {
-  background-color: transparent !important;
+.btn-git-hub,
+.alert-all-repos-user,
+.repo-card-username {
+  border: 1px solid #333 !important;
+  border-radius: 0.8em !important;
+  transition: all 0.25s;
+  background-color: #242424 !important;
+  color: #e0e0e0 !important;
+}
+.btn-pagination {
+  border: 1px solid #333 !important;
+  border-radius: 0.8em !important;
+  transition: all 0.25s;
+  background-color: #242424 !important;
+  color: #e0e0e0 !important;
+}
+.btn-pagination:hover {
+  background-color: #727272 !important;
+  color: black !important;
+}
+.btnSearch:hover,
+.btn-git-hub:hover,
+.btn-back:hover,
+.alert-all-repos-user:hover {
+  background-color: #2d2d2d !important;
+  border-color: #444 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.3);
+}
+.btn-book-mark:hover {
   color: white !important;
 }
-.btnSearch,
-.repo-card,
-.btn-book-mark,
-.btn-pagination,
-.btn-back,
-.btn-git-hub {
-  border: 1px solid #444444 !important;
-  border-radius: 1em;
-  transition: all 0.3s ease;
+.btn-back {
+  width: auto !important;
+  padding: 0.5em 1em;
+  margin-bottom: 1rem;
 }
-.repo-card:hover,
-.btnSearch:hover,
-.btn-git-hub:hover {
-  box-shadow: 0 4px 1.4em rgba(0, 0, 0, 0.4);
-  transform: translateY(-1px);
+.alert-all-repos-user {
+  margin-bottom: 1rem;
+  border: 1px solid #333 !important;
+  padding: 1.25rem !important;
+  display: flex;
+  align-items: center;
 }
-.btnSearch:hover,
-.btn-back:hover {
-  background: rgb(92, 92, 92) !important;
-  color: black;
+.alert-all-repos-user h6 {
+  margin: 0;
+  color: #fff;
 }
-.description {
+.repo-description {
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  margin-top: 4px !important;
+}
+.btn-book-mark {
+  border-radius: 0.4em;
+  padding: 0.1em 0.7em;
+  border: 1px solid #444;
+  background: transparent;
+  color: #888;
+}
+.btn-book-mark:hover {
+  background: #333;
+  color: #ffc107;
+  border-color: #ffc107;
+}
+.description-truncate {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
