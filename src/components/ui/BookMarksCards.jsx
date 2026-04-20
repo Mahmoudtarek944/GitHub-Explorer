@@ -43,8 +43,9 @@ export const BookMarksCards = ({ obj }) => {
                   sweetalertEmpty();
 
                   dispatch({ type: "DELETE_SAVED_REPO", objDelete: obj });
+
                   console.log(dataLocalStorage.length);
-                  if (dataLocalStorage.length) {
+                  if (remidDataLocalStorage.length === 0) {
                     dispatch({ type: "EMPTY_LOCAL_STORAGE" });
                   }
                 }}
