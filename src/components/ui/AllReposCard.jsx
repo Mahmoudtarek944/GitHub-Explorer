@@ -1,6 +1,11 @@
 import Swal from "sweetalert2";
 import { sweetalertError, sweetalertSuccess } from "../../utils/sweetalert2";
+import { useState } from "react";
 export const AllReposCard = ({ reposData }) => {
+  const adding = 4;
+  // const [firstIndexSlice, setFirstIndexSlice] = useState(0);
+  const [lastIndexSlice, setLastIndexSlice] = useState(adding);
+
   if (!reposData || reposData.length === 0) {
     return (
       <div className="text-center text-muted my-5 p-5 border border-secondary rounded-3">
@@ -18,7 +23,7 @@ export const AllReposCard = ({ reposData }) => {
         <span className="badge bg-secondary fs-6">{reposData.length}</span>
       </h4>
       <div className="d-flex flex-column gap-3">
-        {reposData.map((repo) => (
+        {reposData.slice(0, lastIndexSlice).map((repo) => (
           <div
             className="alert-all-repos-user shadow-sm p-3 d-flex align-items-center justify-content-between"
             key={repo.id}
@@ -80,6 +85,15 @@ export const AllReposCard = ({ reposData }) => {
           </div>
         ))}
       </div>
+      <button
+        className="btn btn-back fw-bold fs-6 d-flex align-items-center gap-2"
+        style={{ backgroundColor: "transparent", border: "none" }}
+        onClick={() => {
+          setLastIndexSlice((prev) => prev + adding);
+        }}
+      >
+        Show More
+      </button>
     </div>
   );
 };
