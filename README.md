@@ -1,18 +1,30 @@
-# React + Vite
+GitHub Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web app to explore GitHub users and repositories in a clean and interactive way.
+## Features
+- Search for GitHub users
+- Explore repositories with pagination
+- Loading skeleton for better UX
+- Error handling for API requests
+- Data caching using React Query
+- Clean and responsive UI
 
-Currently, two official plugins are available:
+## 🛠 Tech Stack
+- React
+- React Bootstrap
+- JavaScript (ES6+)
+- CSS / Bootstrap (or your styling)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌐 Live Demo
+👉 https://git-hub-explorer-liart.vercel.app/
 
-## React Compiler
+## 📂 GitHub Repository
+👉 https://github.com/Mahmoudtarek944/GitHub-Explorer
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## ⚙️ Installation
 
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+git clone https://github.com/Mahmoudtarek944/GitHub-Explorer.git
+cd GitHub-Explorer
+npm install
+npm run dev
