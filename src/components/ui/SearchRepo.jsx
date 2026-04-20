@@ -4,8 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 export const SearchRepo = () => {
   const { dispatch } = useContext(RepoContext);
+
   const refInput = useRef(null);
+
   const navigateUserRepoName = useNavigate();
+
   const [searchType, setSearchType] = useState("user");
 
   const handleSearch = () => {

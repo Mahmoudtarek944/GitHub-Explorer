@@ -34,7 +34,14 @@ export const NavBar = () => {
               >
                 Home
               </Nav.Link>
-              <Nav.Link href="/bookmarks" className="text-light fw-medium ">
+              <Nav.Link
+                href="/bookmarks"
+                className={
+                  window.location.pathname === "/bookmarks"
+                    ? "text-light fw-medium rounded-3 bg-black"
+                    : "text-light fw-medium  rounded-3 "
+                }
+              >
                 Bookmarks
               </Nav.Link>
             </Nav>

@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+import { sweetalertError, sweetalertSuccess } from "../../utils/sweetalert2";
 export const AllReposCard = ({ reposData }) => {
   if (!reposData || reposData.length === 0) {
     return (
@@ -56,6 +58,21 @@ export const AllReposCard = ({ reposData }) => {
               <button
                 className="btn btn-book-mark border-0 p-1 text-secondary"
                 title="Add to bookmarks"
+                onClick={() => {
+                  const savedData = localStorage.getItem("savedRepo");
+                  let currentList = savedData ? JSON.parse(savedData) : [];
+                  const isExist = currentList.find(
+                    (item) => item.id === repo.id,
+                  );
+
+                  if (!isExist) {
+                    const newList = [...currentList, repo];
+                    localStorage.setItem("savedRepo", JSON.stringify(newList));
+                    sweetalertSuccess();
+                  } else {
+                    sweetalertError();
+                  }
+                }}
               >
                 <i className="bi bi-bookmark-plus fs-5"></i>
               </button>

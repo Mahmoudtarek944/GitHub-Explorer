@@ -66,6 +66,7 @@ function Home() {
       isMount = false;
     };
   }, [state.quaryName]);
+
   const itemsPerPage = 12;
   const indexOfLastRepo = state.currentPage * itemsPerPage;
   const indexOfFirstRepo = indexOfLastRepo - itemsPerPage;

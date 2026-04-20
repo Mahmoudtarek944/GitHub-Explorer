@@ -55,15 +55,15 @@ export const RepoSearchCard = ({ repoSearch }) => {
                 )}
               </div>
               <div className="d-flex gap-4 my-2">
-                <div className="text-center">
+                <div className="text-center d-flex flex-column">
                   <h6 className="fw-bold mb-0">{repoSearch.public_repos}</h6>
                   <small className="text-secondary">Repos</small>
                 </div>
-                <div className="text-center">
+                <div className="text-center d-flex flex-column">
                   <h6 className="fw-bold mb-0">{repoSearch.followers}</h6>
                   <small className="text-secondary">Followers</small>
                 </div>
-                <div className="text-center">
+                <div className="text-center d-flex flex-column">
                   <h6 className="fw-bold mb-0">{repoSearch.following}</h6>
                   <small className="text-secondary">Following</small>
                 </div>
